@@ -1,0 +1,20 @@
+<div id="trainerslist" data-role="content">
+	<ul data-role="listview" data-inset="true">
+	<% if (collection.models.length === 0) {%>
+			<div id="zero">Не найдено ни одной тренировки.</div>
+		<%} else {%>
+		<% _.each( collection.models, function(model){ %>
+		<li><a href="#trainers?<%= model.get('id')%>">
+			<div class="ui-corner-all custom-corners">
+				<div class="ui-bar ui-bar-a">
+					<h3><%= model.get('name')%></h3>
+				</div>
+				<div class="ui-body ui-body-a">
+					<img class="gallery-main-thumb" src="<%= model.get('image')%>?width=100&height=100">
+				</div>
+			</div>
+			</a>
+		</li>
+		<%	})} %>
+	</ul>
+</div>

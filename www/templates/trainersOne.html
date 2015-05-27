@@ -1,0 +1,44 @@
+<div id="trainers" data-role="content">
+	<div class="gallery-main-thumb">
+		<img src="<%= model.get('image')%>?width=<%=(window.App.viewport.width - 100)%>&height=<%=window.App.viewport.height%>" name="<%= model.get('name')%>" class="main-photo-thumb">
+	</div>
+	<div data-role="collapsibleset" data-content-theme="a" data-iconpos="left" id="trainers_set">
+		<div data-role="collapsible" id="description" data-collapsed="false" >
+			<h3>Описание</h3>
+			<div class="ui-body ui-body-a ui-corner-all">
+				<p><%= model.get('description')%></p>
+			</div>
+		</div>
+		<% if (week) {%>
+		<div data-role="collapsible" id="schedule" data-collapsed="true">
+			<h3>Расписание упражнений</h3>
+			<div class="ui-body ui-body-a ui-corner-all" style="padding: 0">
+				<ul data-role="listview" data-inset="true" style="margin-top: 0">
+					<%_.each(week, function(day) {%>
+					<%if (day.data) {%>
+					<li data-role="list-divider"><%=day.name%> <span class="ui-li-count"><%=day.data.length%></span></li>
+					<% _.each(day.data, function(item) {%>
+					
+					<li>
+						<a href="#exercises?<%=item.exercise.id%>"><h2 class="exercise-name-day"><%=item.exercise.name%></h2></a>
+						<p class="exercise-comment-day"><%= item.comment %></p>
+						<p class="ui-li-aside"><strong>подходов: <%=item.approach%> </strong><br> <strong>раз: <%=item.time%> </strong></p>
+					</li>
+
+					<%})%>
+					<%}%>
+					<%})%>
+				</ul>
+			</div>
+		</div>
+		<%}%>
+		<% if (model.get('recomendation')) {%>
+		<div data-role="collapsible" id="recomendation" data-collapsed="true">
+			<h3>Рекомендации</h3>
+			<div class="ui-body ui-body-a ui-corner-all">
+				<%=model.get('recomendation')%>
+			</div>
+		</div>
+		<%}%>
+	</div>
+</div>

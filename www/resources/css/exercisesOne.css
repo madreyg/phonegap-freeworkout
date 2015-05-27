@@ -1,0 +1,19 @@
+#exercises ol {
+	-webkit-padding-start: 21px;
+}
+
+.start-position-text{
+  line-height: 100%;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  text-indent:5%;
+  font-size: 0.9em
+}
+
+#exercises .ui-body{
+	font-size: 0.8em;
+	white-space: normal;
+}

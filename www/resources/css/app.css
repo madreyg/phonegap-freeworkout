@@ -1,0 +1,193 @@
+﻿/* Increase height of list item so title and narrative fit */
+     /*this block should go in the styles.css file*/
+
+#header, .navlabel, #header2 {
+    height:2.5em;
+}
+#bars-button {
+    margin:7px;
+}
+
+#navpanel {
+    background-color: #cccccc
+}
+
+#navpanel .ui-controlgroup, fieldset.ui-controlgroup {
+    margin: 0.1em 0;
+}
+
+.footer-button-left,
+.footer-button-right {
+    position: absolute;
+    margin: 0;
+    top: auto;
+    bottom: 0.24em;
+}
+.footer-button-left {
+    left: 0.4em;
+}
+.footer-button-right {
+    right: 0.4em;
+    float: right;
+}
+
+.metro {
+  font-size: 13px;
+}
+.character {
+  color: black;
+  font-size: 17px;
+}
+
+.photo-gallery, .gallery-main-thumb {
+  text-align: center;
+}
+
+.label {
+  font-size: 100% !important;
+  font-style: italic;
+  font-family: cursive;
+}
+
+.main-text li {
+  margin-top: 10px
+}
+
+.custom-corners .ui-bar {
+  -webkit-border-top-left-radius: inherit;
+  border-top-left-radius: inherit;
+  -webkit-border-top-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.custom-corners .ui-body {
+  border-top-width: 0;
+  -webkit-border-bottom-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  -webkit-border-bottom-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.exercise-name-day {
+	margin-right: 90px !important;
+	white-space: normal !important;
+	font-size: 0.8em !important;
+}
+
+.exercise-comment-day {
+	margin-left: 10px !important;
+	white-space: normal !important;
+}
+
+.rating, .filterCheck, .filter-metro-district, .filter-trainers, .filter-submit, #approved, #distance-filter, #filterRating, #filter-muscle-button {
+  margin-top: 1.1em;
+  margin-left: 0.2em;
+}
+
+.filterLabel label {
+  line-height: 1.0;
+  margin: 0 !important;
+}
+
+#starts-form {
+  display: none;
+}
+
+.ui-icon-like {
+    background: url("../img/likegreen.svg") 2% 2% no-repeat !important;
+    background-size: 18px 18px;
+    -webkit-min-device-pixel-ratio: 2
+
+}
+#button-like {
+  margin-left: 2em;
+  margin-right: 2em;
+  font-size: smaller;
+}
+
+.btn-like {
+   background-color: rgb(96, 171, 96)  !important;
+}
+
+.btn-all {
+  background-color: #0099D0  !important;
+}
+
+.ui-icon-dislike {
+    background: url("../img/likered.svg") no-repeat rgba(0, 0, 0, 0.4) !important;
+    background-size: 18px 18px;
+    -webkit-min-device-pixel-ratio: 2
+}
+
+label.disable {
+  color: #dddddd;
+}
+
+.raiting {
+  background: url("../img/stars16.png") no-repeat;
+  background-position: 0 -16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+}
+
+.custom-corners .ui-bar {
+  -webkit-border-top-left-radius: inherit;
+  border-top-left-radius: inherit;
+  -webkit-border-top-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.custom-corners .ui-body {
+  border-top-width: 0;
+  -webkit-border-bottom-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  -webkit-border-bottom-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.sportgroundFilter .ui-bar h3 {
+  font-size: 0.9em;
+  padding-top: 0.8em;
+  padding-left: 1.3em;
+}
+.sportgroundFilter .ui-bar,.sportgroundFilter .ui-body{
+  padding: 0 !important
+}
+
+.stars {
+  background: url("../img/stars.png") no-repeat;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.stars-noselect {
+  background-position: 0 0;
+}
+.stars-select {
+  background-position: 0 -64px !important;
+}
+
+#no-connect {
+  background: url("../img/no_connect.png");
+  width: 50%;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+
+#likegreen, #likered {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  display: inline-block;
+  float: right;
+}
+
+#likegreen {
+  background: url("../img/likegreen.svg") no-repeat;
+}
+
+#likered {
+  background: url("../img/likered.svg") no-repeat; 
+}

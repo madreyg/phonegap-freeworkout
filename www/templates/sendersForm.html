@@ -1,0 +1,18 @@
+<div id="senderForm">
+	<form id="form-sender" action="http://free-workout.ru/feedback/api/request/">
+			<label for="sender">ФИО:</label>
+        	<input type="text" name="sender" id="sender">
+        	<label for="email">E-mail:</label> 
+        	<input type="email" name="email" id="email" placeholder="Your email..">
+			<div class="group-subject">
+				<label for="subject" class="select" style="margin-top: 1.1em">Тема:</label>
+				<select name="subject" id="subject">
+						<option value="0">Есть идея</option>
+						<option value="1">Знаете площадку</option>
+				</select>
+			</div>
+			<label for="message">Сообщение:</label>
+        	<input type="text" name="message" id="message">
+			<input type="submit" data-inline="true" value="Отправить" data-theme="b" id="sender-submit">
+	</form>
+</div> 

@@ -1,0 +1,100 @@
+<div id="sportground" data-role="content">
+	<div clas="ui-grid-solo">
+		<div class="ui-grid-a ui-responsive">
+			<!-- 			<div class="ui-block-a"> -->
+			<div class="ui-bar ui-bar-a photo-gallery">
+				<div class="gallery-main-thumb">
+					<a href="#gallery" class="start-swipe"><img src="<%= model.get('image')%>?width=368&height=365" name="<%= model.get('full_address')%>" class="main-photo-thumb"></a>
+				</div>
+				<div class="gallery-thumbs">
+					<div data-role="controlgroup" data-type="horizontal">
+						<% _.each(gallery, function(photo) { %>
+						<a href="#gallery" class="start-swipe">
+							<img src="<%=photo['image']%>?width=70&height=70" name="<%= photo['name']%>" class="ui-li-thumb">
+						</a>
+						<% }) %>
+					</div>
+					</div><!-- /grid-c -->
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="ui-bar ui-bar-a">
+				<div class="main-info">
+					<h2><%= full_address%></h2>
+					<%if (model.has('district')) {%>
+					<p>Район: <%=model.get('district').name%></p>
+					<%}%>
+					<div class="metro">
+						<span class="character">Станции метро: </span>
+						<% _.each(subway_station, function(item) { %>
+						<span style="color: <%=item.line.color%>"> <%= item['name']%></span>
+						<% }) %>
+					</div>
+					<div id="description"><%=model.get("description", "")%></div>
+				</div>
+				<div class="trainers-info">
+					<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
+						<thead>
+							<tr>
+								<th data-priority="1">Название</th>
+								<th data-priority="1">Количество</th>
+								<th data-priority="1">Состояние</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% _.each(trainers, function(trainer) { %>
+							<tr>
+								<th><%=trainer.trainer.name%></th>
+								<td><%=trainer.count%></td>
+								<td><% for (var i=0; i < model.get('state') + 1; i++) {%>
+										<div class="raiting"/>
+									<%}%></td>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+			<!-- </div>/grid-a -->
+		</div>
+	</div>
+	<div id="photoswipe-gallery">
+		<!-- Root element of PhotoSwipe. Must have class pswp. -->
+		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+			<!-- Background of PhotoSwipe.
+			It's a separate element, as animating opacity is faster than rgba(). -->
+			<div class="pswp__bg"></div>
+			<!-- Slides wrapper with overflow:hidden. -->
+			<div class="pswp__scroll-wrap">
+				<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+				<div class="pswp__container">
+					<!-- don't modify these 3 pswp__item elements, data is added later on -->
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+				</div>
+				<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+				<div class="pswp__ui pswp__ui--hidden">
+					<div class="pswp__top-bar">
+						<!--  Controls are self-explanatory. Order can be changed. -->
+						<div class="pswp__counter"></div>
+						<!-- element will get class pswp__preloader--active when preloader is running -->
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+								<div class="pswp__preloader__cut">
+									<div class="pswp__preloader__donut"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+						<div class="pswp__share-tooltip"></div>
+					</div>
+					<div class="pswp__caption">
+						<div class="pswp__caption__center"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
