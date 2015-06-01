@@ -39,7 +39,7 @@ define([
 
 
             navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                timeout: 10000
+                timeout: 10000, enableHighAccuracy: true
             });
         },
 
@@ -97,4 +97,4 @@ define([
         'default': MainController.default
     });
     return $.extend(Router, MainController);
-})
+});
