@@ -56,3 +56,7 @@
 .error {
     color: red;
 }
+
+#filterpanel .ui-content {
+    overflow-x: visible;
+}

@@ -193,3 +193,36 @@ label.disable {
 #likered {
     background: url("../img/likered.svg") no-repeat;
 }
+
+#senderForm .ui-btn {
+    text-align: left;
+    padding-left: 0.5em;
+}
+
+#senderForm .ui-input-btn {
+    float: right;
+    margin-right: 0;
+}
+
+#senderForm {
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+}
+
+.ui-header .ui-title {
+    margin-right: 20% !important;
+    margin-left: 20% !important;
+}
+
+#filterRating {
+    margin-left: 2.5em;
+}
+
+#addedFilter {
+    margin: 0.2em;
+    border: 0;
+}
+
+.sportgroundFilter .ui-input-btn {
+    margin-left: 0.3em;
+}

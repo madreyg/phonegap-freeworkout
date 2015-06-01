@@ -52,6 +52,8 @@ define([
                     remove: false,
                     reset: true
                 });
+            } else {
+                return false
             }
         }
     })

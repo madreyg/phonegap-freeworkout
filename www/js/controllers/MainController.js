@@ -280,7 +280,7 @@
         },
         senders: function () {
             $.mobile.loading("hide");
-            $('#header').find('h1').text("Расположение");
+            $('#header').find('h1').text("Есть идея/знаете площадку");
             $('#content').html(sendersForm).trigger("create");
             $('#form-sender').validate({
                 rules: {
