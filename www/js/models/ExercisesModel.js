@@ -1,15 +1,13 @@
 define([
-	'underscore',
-	'backbone',
-	'./LayoutModel'
+    'underscore',
+    'backbone',
+    './LayoutModel'
 ], function (_, Backbone, LayoutModel) {
-	'use strict';
+    'use strict';
 
-	var ExercisesModel = LayoutModel.extend({
-		
-		urlRoot: 'http://free-workout.ru/workout/api/exercises/'
-		
-	});
+    return LayoutModel.extend({
 
-	return ExercisesModel;
+        urlRoot: 'http://free-workout.ru/workout/api/exercises/'
+
+    });
 });

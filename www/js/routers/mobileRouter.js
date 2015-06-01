@@ -39,7 +39,7 @@ define([
 
 
             navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                timeout: 10000, enableHighAccuracy: true
+                timeout: 15000, enableHighAccuracy: true
             });
         },
 
@@ -65,7 +65,7 @@ define([
         },
 
         onErrorGeolocation: function(error) {
-            alert('Не удалось получить данные геолокации.');
+            alert('Не удалось получить данные геолокации.' + error);
             window.localStorage.setItem('filterCheckPlace', 'on');
         },
 

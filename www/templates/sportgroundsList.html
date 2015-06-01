@@ -1,28 +1,32 @@
 <div class="sportgroundlist">
-	<ul data-role="listview" data-inset="true">
-	<% if (collection.models.length === 0) {%>
-			<div id="zero">Не найдено ни одной площадки.</div>
-		<%} else {%>
-		<% _.each( collection.models, function(model){ %>
-		<li>
-			<a href="#sport-grounds?<%= model.get("id") %>" class="sportground ui-link-inherit" data-transition="slide">
-				<img src="<%= model.get("image") %>?width=100&height=100">
-				
-				<h2><%= model.get("address") %></h2>
-				<!-- <div class="raiting" data-star="<%=model.get('state')%>" style="float: left"></div> -->
-				<% for (var i=0; i < model.get('state') + 1; i++) {%>
-					<div class="raiting"/>
-				<%}%>
-				<% if( model.get('approved')) {%>
-					<!-- <img width="16" height="16" src="/resources/img/likegreen.svg" style="float: right"> -->
-					<div id="likegreen"></div>
-				<% } else {%>
-					<!-- <img width="16" height="16" src="/resources/img/likered.svg" style="float: right"> -->
-					<span id="likered"></span>
-				<% }%>
-			</a>
-			<a href="#sport-groundsmap?<%=model.get('id')%>?<%= model.get('point').lat%>?<%=model.get('point').lng%>?<%=model.get('address')%>>" id="to-map" data-icon="map-marker" data-rel="slide" data-position-to="window" data-transition="slide" data-map="<%= '[' + model.get('point').lat + ',' + model.get('point').lng + ']'%>" data-address="<%= model.get("address") %>"></a>
-		</li>
-		<%	})} %>
-	</ul>
+    <ul data-role="listview" data-inset="true">
+        <% if (collection.models.length === 0) {%>
+        <div id="zero">Не найдено ни одной площадки.</div>
+        <%} else {%>
+        <% _.each( collection.models, function(model){ %>
+        <li>
+            <a href="#sport-grounds?<%= model.get('id') %>" class="sportground ui-link-inherit"
+               data-transition="slide">
+                <img src="<%= model.get('image')%>?width=100&height=100">
+
+                <h2><%= model.get("address") %></h2>
+                <!-- <div class="raiting" data-star="<%=model.get('state')%>" style="float: left"></div> -->
+                <% for (var i=0; i < model.get('state') + 1; i++) {%>
+                <div class="raiting"/>
+                <%}%>
+                <% if( model.get('approved')) {%>
+                <!-- <img width="16" height="16" src="/resources/img/likegreen.svg" style="float: right"> -->
+                <div id="likegreen"></div>
+                <% } else {%>
+                <!-- <img width="16" height="16" src="/resources/img/likered.svg" style="float: right"> -->
+                <span id="likered"></span>
+                <% }%>
+            </a>
+            <a href="#sport-groundsmap?<%=model.get('id')%>?<%= model.get('point').lat%>?<%=model.get('point').lng%>?<%=model.get('address')%>>"
+               id="to-map" data-icon="map-marker" data-rel="slide" data-position-to="window" data-transition="slide"
+               data-map="<%= '[' + model.get('point').lat + ',' + model.get('point').lng + ']'%>"
+               data-address="<%= model.get('address') %>"></a>
+        </li>
+        <% })} %>
+    </ul>
 </div>

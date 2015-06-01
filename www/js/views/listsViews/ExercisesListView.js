@@ -6,9 +6,9 @@ define([
     "./LayoutListView",
     "text!../../../templates/exercisesList.html",
     "text!../../../templates/exercisesFilter.html"
-], function($, _, Backbone, LayoutListView, exercisesListHTML, exercisesFilter) {
+], function ($, _, Backbone, LayoutListView, exercisesListHTML, exercisesFilter) {
 
-    var ExercisesListView = LayoutListView.extend({
+    return LayoutListView.extend({
 
         template: _.template(exercisesListHTML),
 
@@ -16,63 +16,65 @@ define([
             "click .exercises": 'exercises'
         },
 
-        initialize: function() {
+        initialize: function () {
             LayoutListView.prototype.initialize.apply(this);
             $('#filter-btn-header').show();
-            $('#filterpanel').children().remove();
-            $('#filterpanel').html(exercisesFilter).trigger("create");
+            var filter_panel = $('#filterpanel');
+            filter_panel.children().remove();
+            filter_panel.html(exercisesFilter).trigger("create");
             this.initFilter();
         },
 
-        exercises: function(event) {
+        exercises: function (event) {
             var href = $(event.currentTarget).attr('href');
             // Backbone.history.navigate(href, true);
             $.mobile.navigate(href, true)
         },
 
-        applyFilter: function(e) {
-        	e.preventDefault();
-        	e.stopPropagation();
+        applyFilter: function (e) {
+            e.preventDefault();
+            e.stopPropagation();
             window.localStorage.setItem('exercise_trainer', $("#filter-trainer").val());
             window.localStorage.setItem('muscle', $("#filter-muscle").val());
 
             $('#filterpanel').panel('close');
-            $('.exerciseslist').children().remove();
-            $('.exerciseslist').remove();
-            this.collection.fltr = {'page' : 1};
-            this.collection.fetch({reset:true});
+            var exercises_list = $('.exerciseslist');
+            exercises_list.children().remove();
+            exercises_list.remove();
+            this.collection.fltr = {'page': 1};
+            this.collection.fetch({reset: true});
         },
 
-        initFilter: function() {
+        initFilter: function () {
             var self = this;
-            $('#filterpanel').on('panelbeforeopen', function(event, ui) {
+            $('#filterpanel').on('panelbeforeopen', function () {
                 $.when(
                     $.ajax('http://free-workout.ru/workout/api/muscles/'),
                     $.ajax('http://free-workout.ru/workout/api/trainers/')
-                ).then(function(result1, result2) {
+                ).then(function (result1, result2) {
 
-                    // заполняем select для тренажеров
-                    var select_trainer = $("#filter-trainer");
-                    $.each(result2[0], function(key, trainer) {
-                        select_trainer.append('<option value="' + trainer.id + '">' + trainer.name + '</option>');
+                        // заполняем select для тренажеров
+                        var select_trainer = $("#filter-trainer");
+                        $.each(result2[0], function (key, trainer) {
+                            select_trainer.append('<option value="' + trainer.id + '">' + trainer.name + '</option>');
+                        });
+                        select_trainer.val(window.localStorage.getItem('exercise_trainer') || '').attr('selected', true).siblings('option').removeAttr('selected');
+                        select_trainer.selectmenu("refresh");
+
+                        // заполняем select для мышц
+                        var select_muscle = $("#filter-muscle");
+                        $.each(result1[0], function (key, muscle) {
+                            select_muscle.append('<option value="' + muscle.id + '">' + muscle.name + '</option>');
+                        });
+                        select_muscle.val(window.localStorage.getItem('muscle') || '').attr('selected', true).siblings('option').removeAttr('selected');
+                        select_muscle.selectmenu("refresh");
+
                     })
-                    select_trainer.val(window.localStorage.getItem('exercise_trainer') || '').attr('selected', true).siblings('option').removeAttr('selected');
-                    select_trainer.selectmenu("refresh");
-
-                    // заполняем select для мышц
-                    var select_muscle = $("#filter-muscle");
-                    $.each(result1[0], function(key, muscle) {
-                        select_muscle.append('<option value="' + muscle.id + '">' + muscle.name + '</option>');
-                    })
-                    select_muscle.val(window.localStorage.getItem('muscle') || '').attr('selected', true).siblings('option').removeAttr('selected');
-                    select_muscle.selectmenu("refresh");
-
-                })
             });
 
             // обрабатываем клик по фильтру
-             // обрабатываем клик по фильтру
-            $('#filter-submit').bind('vclick', function(event) {
+            // обрабатываем клик по фильтру
+            $('#filter-submit').bind('vclick', function (event) {
                 //$.mobile.navigate('', true);
                 //event.result = false;
                 self.applyFilter(event);
@@ -81,5 +83,4 @@ define([
         }
 
     });
-    return ExercisesListView;
-})
+});

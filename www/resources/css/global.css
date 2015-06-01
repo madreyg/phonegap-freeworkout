@@ -1,21 +1,21 @@
 .ui-panel-inner {
-    padding:0px !important; /*make the buttons flush edge to edge*/
+    padding: 0 !important; /*make the buttons flush edge to edge*/
 }
 
 .ui-controlgroup {
-    margin:0; /*make the buttons flush to the top*/
+    margin: 0; /*make the buttons flush to the top*/
 }
 
 .navlabel h2 {
-  display: block;
-  font-size: 1.27em;
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 0.5em;
+    display: block;
+    font-size: 1.27em;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0.5em;
 }
 
 .sportgroundlist .ui-listview > li h1,
@@ -23,36 +23,36 @@
 .sportgroundlist .ui-listview > li h3,
 .sportgroundlist .ui-listview > li h4,
 .sportgroundlist .ui-listview > li h5,
-.sportgroundlist .ui-listview > li h6, 
+.sportgroundlist .ui-listview > li h6,
 .exerciseslist .ui-listview > li h1,
 .exerciseslist .ui-listview > li h2,
 .exerciseslist .ui-listview > li h3,
 .exerciseslist .ui-listview > li h4,
 .exerciseslist .ui-listview > li h5,
 .exerciseslist .ui-listview > li h6 {
-	font-size: 0.8em;
-	white-space: normal;
+    font-size: 0.8em;
+    white-space: normal;
 }
 
 .ui-panel.ui-panel-open {
-    position:fixed;
+    position: fixed;
 }
- 
-.ui-panel{
+
+.ui-panel {
     height: 100%;
     overflow-y: auto;
 }
 
 .ui-header .ui-title {
-	font-size: 0.8em !important;
+    font-size: 0.8em !important;
 }
 
 #content {
     padding: 0 !important;
-    right : 0; 
-    left : 0 !important;     
+    right: 0;
+    left: 0 !important;
 }
 
 .error {
-    color:red;
+    color: red;
 }

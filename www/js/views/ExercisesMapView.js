@@ -7,27 +7,24 @@ define([
     "text!../../templates/exercisesMap.html"
 ], function($, _, Backbone, ExercisesMapModel, exercisesMapHTML) {
 
-    var ExercisesMapView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         // el: $("#content"),
         template: _.template(exercisesMapHTML),
-        events: {
+        events: {},
 
-        },
-
-        initialize: function() {
+        initialize: function () {
             $('#filter-btn-header').hide();
             this.listenTo(this.model, "reset", this.render);
         },
 
-        render: function() {
+        render: function () {
             var date = {
-                model: this.model,
+                model: this.model
             };
             this.$el.html(this.template(date)).trigger("create");
             return this
-        },
-      
+        }
+
     });
-    return ExercisesMapView;
-})
+});

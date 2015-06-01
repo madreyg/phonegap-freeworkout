@@ -5,24 +5,24 @@ define([
     "backbone"
 ], function($, Backbone) {
 
-    var LayoutCollection = Backbone.Collection.extend({
+    return Backbone.Collection.extend({
 
         fltr: {
             'page': 1
         },
 
-        initialize: function(model, options) {
+        initialize: function (model, options) {
             if (model) {
                 this.model = model
-            };
+            }
             if (options) {
                 this.fltr = $.extend(this.fltr, options);
-            }else {
-                 this.fltr = {'page': 1};
-            };
+            } else {
+                this.fltr = {'page': 1};
+            }
         },
 
-        parse: function(data) {
+        parse: function (data) {
             if (data.results) {
                 this.has_next = data.has_next;
                 return data.results;
@@ -31,10 +31,10 @@ define([
             }
         },
 
-        filter: function(obj, options) {
+        filter: function (obj, options) {
             var that = this;
             options = (options) ? options : {};
-            _.each(obj, function(v, k) {
+            _.each(obj, function (v, k) {
                 if (_.isArray(v)) {
                     v = v.join(',');
                 }
@@ -44,7 +44,7 @@ define([
             return this.fetch(options);
         },
 
-        next: function() {
+        next: function () {
             if (this.has_next) {
                 this.fltr.page = this.fltr.page || 1;
                 this.fltr.page += 1;
@@ -54,6 +54,5 @@ define([
                 });
             }
         }
-    });
-    return LayoutCollection
-})
+    })
+});

@@ -9,7 +9,7 @@ define([
     'photoSwipe_default'
 ], function($, _, Backbone, SportgroundsModel, sportgroundsHTML, PhotoSwipe, PhotoSwipeUI_Default) {
 
-    var SportgroundsView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         // el: $("#content"),
         template: _.template(sportgroundsHTML),
@@ -17,13 +17,13 @@ define([
             "click .start-swipe": "clickPhoto"
         },
 
-        initialize: function() {
+        initialize: function () {
             $('#filter-btn-header').hide();
             this.listenTo(this.model, "reset", this.render);
-            
+
         },
 
-        render: function() {
+        render: function () {
             var date = {
                 model: this.model,
                 gallery: this.model.get('gallery') || [],
@@ -35,16 +35,16 @@ define([
             return this
         },
 
-        clickPhoto: function(event) {
+        clickPhoto: function (event) {
             var self = this;
             var pswpElement = document.querySelectorAll('.pswp')[0];
-            list_items = [],
-            selected_photo = $(event.currentTarget).find('img');
+            var list_items = [];
+            var selected_photo = $(event.currentTarget).find('img');
 
             selected_photo.addClass('selected-photo');
             var images = $('.start-swipe img');
             var index_start_photo = 0;
-            $.each(images, function(index, image) {
+            $.each(images, function (index, image) {
                 list_items.push({
                     src: self._createImageUrl($(image).attr('src'), App.Const.MAX_WIDTH, App.Const.MAX_HEIGHT),
                     w: App.Const.MAX_WIDTH,
@@ -54,7 +54,7 @@ define([
                 if ($(image).attr('class').search('selected-photo') !== -1) {
                     index_start_photo = index
                 }
-            })
+            });
 
             // define options (if needed)
             var options = {
@@ -75,9 +75,8 @@ define([
             gallery.init();
         },
 
-        _createImageUrl: function(url, width, height) {
+        _createImageUrl: function (url, width, height) {
             return url.replace(/width=\d*/, 'width=' + width).replace(/height=\d*/, 'height=' + height);
         }
     });
-    return SportgroundsView;
-})
+});

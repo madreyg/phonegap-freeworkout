@@ -1,18 +1,16 @@
 define([
-	'underscore',
-	'backbone'
+    'underscore',
+    'backbone'
 ], function (_, Backbone) {
-	'use strict';
+    'use strict';
 
-	var LayoutModel = Backbone.Model.extend({
-		
-		initialize: function(opt) {
-			this.fltr = opt
-		},
+    return Backbone.Model.extend({
 
-		fltr: {}
-				
-	});
+        initialize: function (opt) {
+            this.fltr = opt
+        },
 
-	return LayoutModel;
+        fltr: {}
+
+    });
 });

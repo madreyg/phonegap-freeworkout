@@ -7,27 +7,24 @@ define([
     "text!../../templates/exercisesOne.html"
 ], function($, _, Backbone, ExercisesModel, exercisesOneHTML) {
 
-    var ExercisesView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         // el: $("#content"),
         template: _.template(exercisesOneHTML),
-        events: {
+        events: {},
 
-        },
-
-        initialize: function() {
+        initialize: function () {
             $('#filter-btn-header').hide();
             this.listenTo(this.model, "reset", this.render);
         },
 
-        render: function() {
+        render: function () {
             var date = {
-                model: this.model,
+                model: this.model
             };
             this.$el.html(this.template(date)).trigger("create");
             return this
-        },
-      
+        }
+
     });
-    return ExercisesView;
-})
+});

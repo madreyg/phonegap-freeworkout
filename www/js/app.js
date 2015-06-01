@@ -27,7 +27,7 @@
 });
 
 require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'cordova', 'cordova_plugins', 'jqueryvalidate'], function($, Backbone, Mobile) {
-    function onDeviceReady(status) {
+    function onDeviceReady() {
         // Prevents all anchor click handling
         $.mobile.linkBindingEnabled = false;
 
@@ -42,8 +42,6 @@ require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'cordova'
         $.mobile.phonegapNavigationEnabled = true;
         $.mobile.defaultPageTransition = "fade";
         $.mobile.defaultDialogTransition = "fade";
-        $.mobile.loadingMessage = "Please wait";
-        $.mobile.pageLoadErrorMessage = 'Извини, не удалось загрузить данные.Пожалуйста обновите страницу.';
         $.mobile.phonegapNavigationEnabled = true;
         $.mobile.touchOverflowEnabled = true;
 

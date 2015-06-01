@@ -1,16 +1,18 @@
 <div class="exerciseslist" data-role="content">
-	<ul data-role="listview" data-inset="true">
-		<% if (collection.models.length === 0) {%>
-			<div id="zero">Не найдено ни одного упражнения.</div>
-		<%} else {%>
-		<% _.each( collection.models, function(model){ %>
-			<li>
-				<a href="#exercises?<%= model.get("id") %>" class="exercis ui-link-inherit" data-transition="slide">
-					<img src="<%= model.get("image") %>?width=100&height=100">
-					<h2><%= model.get("name") %></h2>
-				</a>
-				<a href="#exercisesmap?<%= model.get("id") %>" id="to-map" data-icon="map-marker" data-rel="slide" data-position-to="window" data-transition="slide"> </a>
-			</li>
-		<%	})} %>
-	</ul>
+    <ul data-role="listview" data-inset="true">
+        <% if (collection.models.length === 0) {%>
+        <div id="zero">Не найдено ни одного упражнения.</div>
+        <%} else {%>
+        <% _.each( collection.models, function(model){ %>
+        <li>
+            <a href="#exercises?<%= model.get('id') %>" class="exercis ui-link-inherit" data-transition="slide">
+                <img src="<%= model.get('image') %>?width=100&height=100">
+
+                <h2><%= model.get("name") %></h2>
+            </a>
+            <a href="#exercisesmap?<%= model.get('id') %>" id="to-map" data-icon="map-marker" data-rel="slide"
+               data-position-to="window" data-transition="slide"> </a>
+        </li>
+        <% })} %>
+    </ul>
 </div>
