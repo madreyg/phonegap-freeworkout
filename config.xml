@@ -8,11 +8,11 @@
         Apache Cordova Team
     </author>
     <icon src="icon-72-hdpi.png"/>
-    <icon src="www/res/android/icon-36-ldpi.png"></icon>
-    <icon src="www/res/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-    <icon src="www/res/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-    <icon src="www/res/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-    <icon src="www/res/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+    <icon src="www/res/icon/android/icon-36-ldpi.png"></icon>
+    <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+    <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+    <icon src="www/res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+    <icon src="www/res/icon/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
     <content src="index.html" />
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />

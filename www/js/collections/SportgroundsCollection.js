@@ -18,12 +18,12 @@ define([
                 'query=' + (localStorage.getItem('sportgroundsQuery') || ''),
                 'subway_station=' + ((flagFilter && localStorage.getItem('station') !== 0) ? localStorage.getItem('station') : ''),
                 'trainers=' + (localStorage.getItem('trainer') || ''),
-                'stars=' + ((localStorage.getItem('stars') - 1) || ''),
-                'distance=' + ((flagFilter )  ? ('') : localStorage.getItem('distance')),
+                'stars=' + ((localStorage.getItem('stars') > 0) ? (localStorage.getItem('stars') - 1) : 0),
+                'distance=' + ((flagFilter )  ? ('') : localStorage.getItem('distance') || ""),
                 'approved=' + (localStorage.getItem('approved') || false),
-                'geotype=' + (!flagFilter) ? 'target' : "",
-                'lat=' + ((flagFilter) ? ('') : localStorage.getItem('lt')),
-                'lng=' + ((flagFilter) ? ('') : localStorage.getItem('lg'))
+                'geotype=' + ((!flagFilter) ? 'target' : ""),
+                'lat=' + ((flagFilter) ? ('') : localStorage.getItem('lt') || ""),
+                'lng=' + ((flagFilter) ? ('') : localStorage.getItem('lg') || "")
             ].join('&')
         }
     })

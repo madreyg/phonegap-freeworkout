@@ -59,7 +59,7 @@
                     $('#container').page('destroy').page();
                 },
                 error: function (collection, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.'  + response.responseText);
                     $.mobile.loading("hide");
                 }
             });
@@ -111,7 +111,7 @@
                     $('.ui-content').css('padding', 0);
                 },
                 error: function (collection, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.' + response.responseText);
                     $.mobile.loading("hide");
                 }
             });
@@ -136,7 +136,7 @@
                     $("#content").html(exercisesView.render().$el).trigger("create");
                 },
                 error: function (model, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.' + response.responseText);
                     $.mobile.loading("hide");
                 }
             });
@@ -222,7 +222,7 @@
                     $('.map-header-text').text('Расположение спортплощадок');
                 },
                 error: function (model, response) {
-                    alert('Не удалось получить данные с сервера. ' + response)
+                    alert('Не удалось получить данные с сервера. ' + response.responseText)
                 }
             });
             // sportgroundView.render();
@@ -246,7 +246,7 @@
                     $("#content").html(trainersListView.render().$el).trigger("create");
                 },
                 error: function (collection, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.' + response.responseText);
                     $.mobile.loading("hide");
                 }
             });
@@ -272,7 +272,7 @@
                     $("#content").html(trainersView.render().$el).trigger("create");
                 },
                 error: function (model, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.' + response.responseText);
                     $.mobile.loading("hide");
                 }
             });
