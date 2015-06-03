@@ -84,7 +84,7 @@
                     $("#content").html(sportgroundView.render().$el).trigger("create");
                 },
                 error: function (model, response) {
-                    alert('Не удалось получить данные с сервера.' + response);
+                    alert('Не удалось получить данные с сервера.' + response.responseText);
                     $.mobile.loading("hide");
                 }
             });

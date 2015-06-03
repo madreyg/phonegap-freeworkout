@@ -39,7 +39,7 @@ define([
 
 
             navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                timeout: 15000, enableHighAccuracy: true
+                maximumAge: 300000, timeout: 10000, enableHighAccuracy: true
             });
         },
 

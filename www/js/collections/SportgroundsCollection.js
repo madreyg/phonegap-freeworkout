@@ -12,17 +12,18 @@ define([
         model: SportgroundsModel,
 
         url: function () {
-            var flagFilter = window.localStorage.getItem('filterCheckPlace') === 'on';
+            var flagFilter = localStorage.getItem('filterCheckPlace') === 'on';
             return ["http://free-workout.ru/workout/api/sportgrounds/?page=" + this.fltr.page,
-                'district=' + ((flagFilter) ? window.localStorage.getItem('district') : ''),
-                'query=' + (window.localStorage.getItem('sportgroundsQuery') || ''),
-                'subway_station=' + ((flagFilter) ? window.localStorage.getItem('station') : ''),
-                'trainers=' + (window.localStorage.getItem('trainer') || ''),
-                'stars=' + ((window.localStorage.getItem('stars') - 1) || ''),
-                'distance=' + ((flagFilter) ? ('') : window.localStorage.getItem('distance')),
-                'approved=' + (window.localStorage.getItem('approved') || false),
-                'lat=' + ((flagFilter) ? ('') : window.localStorage.getItem('lt')),
-                'lng=' + ((flagFilter) ? ('') : window.localStorage.getItem('lg'))
+                'district=' + ((flagFilter && localStorage.getItem('district') !== 0) ? localStorage.getItem('district') : ''),
+                'query=' + (localStorage.getItem('sportgroundsQuery') || ''),
+                'subway_station=' + ((flagFilter && localStorage.getItem('station') !== 0) ? localStorage.getItem('station') : ''),
+                'trainers=' + (localStorage.getItem('trainer') || ''),
+                'stars=' + ((localStorage.getItem('stars') - 1) || ''),
+                'distance=' + ((flagFilter )  ? ('') : localStorage.getItem('distance')),
+                'approved=' + (localStorage.getItem('approved') || false),
+                'geotype=' + (!flagFilter) ? 'target' : "",
+                'lat=' + ((flagFilter) ? ('') : localStorage.getItem('lt')),
+                'lng=' + ((flagFilter) ? ('') : localStorage.getItem('lg'))
             ].join('&')
         }
     })

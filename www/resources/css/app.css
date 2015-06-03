@@ -98,8 +98,8 @@
 }
 
 .ui-icon-like {
-    background: url("../img/likegreen.svg") 2% 2% no-repeat !important;
-    background-size: 18px 18px;
+    background: url("../img/likegreen.svg") 5% 5% no-repeat !important;
+    background-size: 28px 28px;
     -webkit-min-device-pixel-ratio: 2
 }
 

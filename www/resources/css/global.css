@@ -43,6 +43,10 @@
     overflow-y: auto;
 }
 
+.sportgroundFilter {
+    overflow-x: visible;
+}
+
 .ui-header .ui-title {
     font-size: 0.8em !important;
 }
@@ -55,8 +59,4 @@
 
 .error {
     color: red;
-}
-
-#filterpanel .ui-content {
-    overflow-x: visible;
 }
