@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ru.freeworkout.freeworkout" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ru.freeworkout.freeworkout" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>FreeWorkout</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        FreeWorkout - приложение, которое поможет Вам найти спортивную площадку возле дома для занятия спортом, подобрать тренировку или упражнения.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="mail@free-workout.ru" href="http://free-workout.ru">
+        1builder
     </author>
     <icon src="icon-72-hdpi.png"/>
     <icon src="res/icon/android/icon-36-ldpi.png"></icon>
@@ -14,15 +14,13 @@
     <icon src="res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
     <icon src="res/icon/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
     <content src="index.html" />
-    <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
-    </feature>
-    <gap:platform name="ios" />
     <gap:platform name="android" />
     <gap:platform name="winphone" />
     <preference name="fullscreen" value="true" />
     <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
     <access origin="http://*" launch-external="yes" />
     <access origin="https://*" launch-external="yes" />
     <access origin="geo:*" launch-external="yes" />
+    <access origin="*"/>
 </widget>

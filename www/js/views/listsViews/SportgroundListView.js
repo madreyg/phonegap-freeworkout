@@ -39,13 +39,13 @@ define([
             if (filterCheckPlace === 'off') {
                 window.localStorage.setItem('station', '');
                 window.localStorage.setItem('district', '');
-                window.localStorage.setItem('distance', $('#distance').val());
+                window.localStorage.setItem('distance', parseInt($('#distance').val()));
             } else {
-                window.localStorage.setItem('station', $("#filter-station").val());
-                window.localStorage.setItem('district', $("#filter-district").val());
+                window.localStorage.setItem('station', parseInt($("#filter-station").val()));
+                window.localStorage.setItem('district', parseInt($("#filter-district").val()));
                 window.localStorage.setItem('distance', '');
             }
-            window.localStorage.setItem('trainer', $("#filter-trainer").val());
+            window.localStorage.setItem('trainer', parseInt($("#filter-trainer").val()));
             window.localStorage.setItem('filterCheckPlace', filterCheckPlace);
             window.localStorage.setItem('stars', stars);
             window.localStorage.setItem('sportgroundsQuery', $("#search-sportgroungs").val());
