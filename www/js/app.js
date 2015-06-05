@@ -51,20 +51,8 @@ require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'cordova'
         $.event.special.swipe.durationThreshold = 4000;
         $.event.special.swipe.scrollSupressionThreshold = 1;
 
-        //$.mobile.autoInitializePage = false;
         window.localStorage.clear();
         window.helpers = {};
-
-        // window.helpers.getOfflinePage = function() {
-        //     // $('.ui-loader').remove();
-        //     $('#content').children().remove();
-        //     // $('#filterpanel').children().remove();
-        //     // $('#filterpanel').hide();
-        //     // $('#filter-btn-header').hide();
-        //     // var href = location.hash;
-        //     var str = '<div id="no-connect"></div><div>Не удалось установить интернет соединение.</div><a href="' + href + '"><div>Попробовать еще раз?</div>'
-        //     $('#content').html(str)
-        // }
 
         document.addEventListener("offline", onOffline, false);
         function onOffline() {
