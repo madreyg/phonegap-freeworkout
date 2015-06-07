@@ -46,10 +46,10 @@ define([
                 $.mobile.loading("show", {
                     textVisible: true
                 });
-                if (this.collection.next()) {
-                    $.mobile.loading("hide");
-                    $(document).on("scrollstop", this.checkScroll.bind(this));
-                }
+                this.collection.next();
+                $.mobile.loading("hide");
+                $(document).on("scrollstop", this.checkScroll.bind(this));
+
             }
         }
     });

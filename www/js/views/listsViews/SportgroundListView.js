@@ -72,18 +72,24 @@ define([
                     $.ajax('http://free-workout.ru/location/api/subway-station/'),
                     $.ajax('http://free-workout.ru/workout/api/trainers/')
                 ).then(function (result1, result2, result3) {
-                        var filterCheckPlace = window.localStorage.getItem('filterCheckPlace') || 'off';
+                        var filterCheckPlace = window.localStorage.getItem('filterCheckPlace') || 'on';
+                        if (localStorage.getItem('lt')) {
+                            filterCheckPlace = 'on';
+                        }
                         $('#search-sportgroungs').val(window.localStorage.getItem('sportgroundsQuery') || '');
                         var filter_check_place = $('#filterCheckPlace');
                         filter_check_place.val(filterCheckPlace).attr('selected', true).siblings('option').removeAttr('selected');
                         filter_check_place.slider("refresh");
                         $('#starts-form').val(parseInt(window.localStorage.getItem('stars')) || 1);
+
                         // заполняем select для районов
                         var select_district = $("#filter-district");
                         $.each(result1[0], function (key, district) {
                             select_district.append('<option value="' + district.id + '">' + district.name + '</option>');
                         });
-                        select_district.val(window.localStorage.getItem('district') || '').attr('selected', true).siblings('option').removeAttr('selected');
+                        var district_storage = window.localStorage.getItem('district') || '';
+                        district_storage = isNaN(district_storage) ? '' : district_storage;
+                        select_district.val(district_storage).attr('selected', true).siblings('option').removeAttr('selected');
                         select_district.selectmenu("refresh");
 
                         // заполняем select для метро
@@ -91,7 +97,9 @@ define([
                         $.each(result2[0], function (key, station) {
                             select_station.append('<option value="' + station.id + '">' + station.name + '</option>');
                         });
-                        select_station.val(window.localStorage.getItem('station') || '').attr('selected', true).siblings('option').removeAttr('selected');
+                        var station_storage = window.localStorage.getItem('subway_station') || '';
+                        station_storage = isNaN(station_storage) ? '' : station_storage;
+                        select_station.val(station_storage).attr('selected', true).siblings('option').removeAttr('selected');
                         select_station.selectmenu("refresh");
 
                         if (filterCheckPlace === 'off') {
@@ -113,7 +121,9 @@ define([
                         $.each(result3[0], function (key, trainer) {
                             select_trainer.append('<option value="' + trainer.id + '">' + trainer.name + '</option>');
                         });
-                        select_trainer.val(window.localStorage.getItem('trainer') || '').attr('selected', true).siblings('option').removeAttr('selected');
+                        var trainer_storage = window.localStorage.getItem('trainers') || '';
+                        trainer_storage = isNaN(trainer_storage) ? '' : trainer_storage;
+                        select_trainer.val(trainer_storage).attr('selected', true).siblings('option').removeAttr('selected');
                         select_trainer.selectmenu("refresh");
 
                         var btn = $('#button-like');

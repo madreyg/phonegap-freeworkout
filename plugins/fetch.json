@@ -19,5 +19,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "fr.louisbl.cordova.gpslocation": {
+        "source": {
+            "type": "registry",
+            "id": "fr.louisbl.cordova.gpslocation"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

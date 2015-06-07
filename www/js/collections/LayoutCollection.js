@@ -44,11 +44,11 @@ define([
             return this.fetch(options);
         },
 
-        next: function () {
+        next: function (arg) {
             if (this.has_next) {
                 this.fltr.page = this.fltr.page || 1;
                 this.fltr.page += 1;
-                return this.fetch({
+                return this.fetch(arg ||{
                     remove: false,
                     reset: true
                 });

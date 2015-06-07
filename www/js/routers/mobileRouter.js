@@ -1,34 +1,36 @@
 define([
     "jquery",
     "backbone",
+    'cordova',
+    'jquerymobile',
     "../controllers/MainController"
-], function($, Backbone, MainController) {
+], function ($, Backbone,cordova, jquerymobile,  MainController) {
     var Router = Backbone.Router.extend({
 
         // Constructor
-        initialize: function() {
+        initialize: function () {
             // this.checkConnection();
             //Required for Backbone to start listening to hashchange events
             Backbone.history.start();
-            $("#menu-sportgrounds").bind("vclick", "p", function() {
+            $("#menu-sportgrounds").bind("vclick", "p", function () {
                 $.mobile.navigate("#sport-grounds", true);
                 $('#navpanel').panel("close");
             });
-            $("#menu-exercises").bind("vclick", "p", function() {
+            $("#menu-exercises").bind("vclick", "p", function () {
                 $.mobile.navigate("#exercises", true);
                 $('#navpanel').panel("close");
             });
-            $("#menu-trainers").bind("vclick", "p", function() {
+            $("#menu-trainers").bind("vclick", "p", function () {
                 $.mobile.navigate("#trainers", true);
                 $('#navpanel').panel("close");
             });
-             $("#menu-senders").bind("vclick", "p", function() {
+            $("#menu-senders").bind("vclick", "p", function () {
                 $('#navpanel').panel("close");
             });
-            $("#menu-exit").bind("vclick", 'p', function() {
+            $("#menu-exit").bind("vclick", 'p', function () {
                 navigator.app.exitApp();
             });
-            $("#btn-reload").bind("vclick", '[id="btn-reload]', function() {
+            $("#btn-reload").bind("vclick", '[id="btn-reload]', function () {
                 var newFragment = Backbone.history.location.hash;
                 $(this).attr('href', newFragment);
                 // Backbone.history.navigate(newFragment, true);
@@ -36,14 +38,19 @@ define([
                 Backbone.history.start();
                 // $.mobile.navigate(newFragment, true);
             });
-
-
-            navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                maximumAge: 300000, timeout: 10000, enableHighAccuracy: true
-            });
+            window.localStorage.setItem('filterCheckPlace', 'on');
+            if (window.hasOwnProperty('GPSLocation')) {
+                GPSLocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
+                    timeout: 10000, enableHighAccuracy: true
+                });
+            }else {
+                navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
+                    timeout: 10000, enableHighAccuracy: true
+                });
+            }
         },
 
-        checkConnection: function() {
+        checkConnection: function () {
             var networkState = navigator.connection.type;
 
             var states = {};
@@ -59,12 +66,13 @@ define([
             alert('Connection type: ' + states[networkState]);
         },
 
-        onSuccessGeolocation: function(position) {
+        onSuccessGeolocation: function (position) {
+            window.localStorage.setItem('filterCheckPlace', 'off');
             window.localStorage.setItem('lt', position.coords.latitude);
             window.localStorage.setItem('lg', position.coords.longitude);
         },
 
-        onErrorGeolocation: function(error) {
+        onErrorGeolocation: function (error) {
             alert('Не удалось получить данные геолокации.' + error);
             window.localStorage.setItem('filterCheckPlace', 'on');
         },

@@ -1,7 +1,10 @@
 ﻿define([
     "jquery",
     "backbone",
-    // "jqueryrati\ng",
+    'jqueryvalidate',
+    'cordova',
+    'jquerymobile',
+
     "../models/SportgroundsModel",
     "../models/ExercisesModel",
     "../models/ExercisesMapModel",
@@ -23,6 +26,10 @@
     "text!../../templates/sendersForm.html"
 ], function ($,
              Backbone,
+             jqueryvalidate,
+             cordova,
+             jquerymobile,
+
              SportgroundsModel,
              ExercisesModel,
              ExercisesMapModel,
