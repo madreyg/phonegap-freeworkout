@@ -27,8 +27,9 @@ define([
             $("#menu-senders").bind("vclick", "p", function () {
                 $('#navpanel').panel("close");
             });
-            $("#menu-exit").bind("vclick", 'p', function () {
+            $("#menu-exit").bind("vclick", 'p', function (event) {
                 navigator.app.exitApp();
+                return false
             });
             $("#btn-reload").bind("vclick", '[id="btn-reload]', function () {
                 var newFragment = Backbone.history.location.hash;
@@ -67,13 +68,12 @@ define([
         },
 
         onSuccessGeolocation: function (position) {
-            window.localStorage.setItem('filterCheckPlace', 'off');
             window.localStorage.setItem('lt', position.coords.latitude);
             window.localStorage.setItem('lg', position.coords.longitude);
         },
 
         onErrorGeolocation: function (error) {
-            alert('Не удалось получить данные геолокации.' + error);
+            alert('Не удалось получить данные геолокации.');
             window.localStorage.setItem('filterCheckPlace', 'on');
         },
 

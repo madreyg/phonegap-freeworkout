@@ -73,9 +73,6 @@ define([
                     $.ajax('http://free-workout.ru/workout/api/trainers/')
                 ).then(function (result1, result2, result3) {
                         var filterCheckPlace = window.localStorage.getItem('filterCheckPlace') || 'on';
-                        if (localStorage.getItem('lt')) {
-                            filterCheckPlace = 'on';
-                        }
                         $('#search-sportgroungs').val(window.localStorage.getItem('sportgroundsQuery') || '');
                         var filter_check_place = $('#filterCheckPlace');
                         filter_check_place.val(filterCheckPlace).attr('selected', true).siblings('option').removeAttr('selected');
@@ -97,7 +94,7 @@ define([
                         $.each(result2[0], function (key, station) {
                             select_station.append('<option value="' + station.id + '">' + station.name + '</option>');
                         });
-                        var station_storage = window.localStorage.getItem('subway_station') || '';
+                        var station_storage = window.localStorage.getItem('station') || '';
                         station_storage = isNaN(station_storage) ? '' : station_storage;
                         select_station.val(station_storage).attr('selected', true).siblings('option').removeAttr('selected');
                         select_station.selectmenu("refresh");
@@ -121,7 +118,7 @@ define([
                         $.each(result3[0], function (key, trainer) {
                             select_trainer.append('<option value="' + trainer.id + '">' + trainer.name + '</option>');
                         });
-                        var trainer_storage = window.localStorage.getItem('trainers') || '';
+                        var trainer_storage = window.localStorage.getItem('trainer') || '';
                         trainer_storage = isNaN(trainer_storage) ? '' : trainer_storage;
                         select_trainer.val(trainer_storage).attr('selected', true).siblings('option').removeAttr('selected');
                         select_trainer.selectmenu("refresh");

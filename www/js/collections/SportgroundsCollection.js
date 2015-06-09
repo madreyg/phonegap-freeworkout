@@ -55,7 +55,7 @@ define([
             },
 
             getSubwayStation: function () {
-                var subway_station = localStorage.getItem('subway_station');
+                var subway_station = localStorage.getItem('station');
                 if (subway_station !== null && !isNaN(subway_station)) {
                     return ('subway_station='.concat(subway_station))
                 } else {

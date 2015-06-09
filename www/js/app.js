@@ -22,6 +22,20 @@
             deps: ["underscore", "jquery"],
             exports: "Backbone"
         }
+        //"jqueryvalidate": {
+        //    deps: ['jquery'],
+        //    export: "$"
+        //},
+        //"jquerymobile": {
+        //    deps: ['jquery'],
+        //    export: "$"
+        //}
+        //"cordova_plugins": {
+        //    deps: ['cordova']
+        //},
+        //"photoSwipe_default": {
+        //    deps: ["photoSwipe"]
+        //}
     }
 
 });
@@ -50,7 +64,7 @@ require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'cordova'
         $.event.special.swipe.verticalDistanceThreshold = 1000;
         $.event.special.swipe.durationThreshold = 4000;
         $.event.special.swipe.scrollSupressionThreshold = 1;
-
+        $.support.cors = true;
         window.localStorage.clear();
         window.helpers = {};
 
