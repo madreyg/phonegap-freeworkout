@@ -2,7 +2,6 @@
     "jquery",
     "backbone",
     'jqueryvalidate',
-    'cordova',
     'jquerymobile',
 
     "../models/SportgroundsModel",
@@ -27,7 +26,6 @@
 ], function ($,
              Backbone,
              jqueryvalidate,
-             cordova,
              jquerymobile,
 
              SportgroundsModel,

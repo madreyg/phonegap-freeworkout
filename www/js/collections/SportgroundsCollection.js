@@ -41,7 +41,7 @@ define([
                         str_tmp
                     ].join('&')
                 }
-                alert(result);
+                //alert(result);
                 return result
 
             },

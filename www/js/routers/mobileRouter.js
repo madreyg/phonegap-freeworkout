@@ -1,10 +1,9 @@
 define([
     "jquery",
     "backbone",
-    'cordova',
     'jquerymobile',
     "../controllers/MainController"
-], function ($, Backbone,cordova, jquerymobile,  MainController) {
+], function ($, Backbone, jquerymobile,  MainController) {
     var Router = Backbone.Router.extend({
 
         // Constructor

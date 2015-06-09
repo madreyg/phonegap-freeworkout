@@ -9,8 +9,8 @@
         'jquerymobile': 'libs/jquerymobile',
         'underscore': 'libs/underscore',
         'backbone': 'libs/backbone-min',
-        'cordova': 'cordova',
-        'cordova_plugins': 'cordova_plugins',
+        //'cordova': 'cordova',
+        //'cordova_plugins': 'cordova_plugins',
         'text': 'libs/text',
         'photoSwipe': 'libs/photoswipe.min',
         'photoSwipe_default': 'libs/photoswipe-ui-default.min',
@@ -40,7 +40,7 @@
 
 });
 
-require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'cordova', 'cordova_plugins', 'jqueryvalidate'], function($, Backbone, Mobile) {
+require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'jqueryvalidate'], function($, Backbone, Mobile) {
     function onDeviceReady() {
         // Prevents all anchor click handling
         $.mobile.linkBindingEnabled = false;
