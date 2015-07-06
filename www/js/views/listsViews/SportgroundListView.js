@@ -15,7 +15,6 @@ define([
 
         events: {
             "click .sportground": 'sportground'
-
         },
 
         initialize: function () {
@@ -72,7 +71,11 @@ define([
                     $.ajax('http://free-workout.ru/location/api/subway-station/'),
                     $.ajax('http://free-workout.ru/workout/api/trainers/')
                 ).then(function (result1, result2, result3) {
-                        var filterCheckPlace = window.localStorage.getItem('filterCheckPlace') || 'on';
+
+                        var filterCheckPlace = window.localStorage.getItem('filterCheckPlace') || 'off';
+                        if (!window.localStorage.getItem('lt')) {
+                            $('#filterCheckPlace').slider('disable');
+                        }
                         $('#search-sportgroungs').val(window.localStorage.getItem('sportgroundsQuery') || '');
                         var filter_check_place = $('#filterCheckPlace');
                         filter_check_place.val(filterCheckPlace).attr('selected', true).siblings('option').removeAttr('selected');
@@ -102,13 +105,13 @@ define([
                         if (filterCheckPlace === 'off') {
                             select_district.selectmenu('disable');
                             select_station.selectmenu('disable');
-                            $('#distance').slider('enable');
+                            $('#distance').textinput('enable');
                             $('#distance-filter').find('label').removeClass('disable');
                             $('.filter-metro-district label').addClass('disable');
                         } else {
                             select_district.selectmenu('enable');
                             select_station.selectmenu('enable');
-                            $('#distance').slider('disable');
+                            $('#distance').textinput('disable');
                             $('#distance-filter').find('label').addClass('disable');
                             $('.filter-metro-district label').removeClass('disable');
                         }
@@ -146,17 +149,17 @@ define([
                 event.preventDefault();
             });
             $('#filterCheckPlace').change(function () {
-                var filterCheckPlace = $('#filterCheckPlace').val();
+                filterCheckPlace = $('#filterCheckPlace').val();
                 if (filterCheckPlace === 'off') {
                     $("#filter-district").selectmenu('disable');
                     $("#filter-station").selectmenu('disable');
-                    $('#distance').slider('enable');
+                    $('#distance').textinput('enable');
                     $('#distance-filter').find('label').removeClass('disable');
                     $('.filter-metro-district label').addClass('disable');
                 } else {
                     $("#filter-district").selectmenu('enable');
                     $("#filter-station").selectmenu('enable');
-                    $('#distance').slider('disable');
+                    $('#distance').textinput('disable');
                     $('#distance-filter').find('label').addClass('disable');
                     $('.filter-metro-district label').removeClass('disable');
                 }

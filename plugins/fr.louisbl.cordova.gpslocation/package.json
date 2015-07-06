@@ -1,0 +1,19 @@
+{
+    "version": "0.1.0",
+    "name": "fr.louisbl.cordova.gpslocation",
+    "cordova_name": "Native GPS Location for Cordova - Android",
+    "description": "Android geolocation plugin using GPS provider",
+    "license": "Apache 2.0",
+    "repo": "https://github.com/louisbl/cordova-gpslocation",
+    "issue": "https://github.com/louisbl/cordova-gpslocation/issues",
+    "keywords": [
+        "cordova",
+        "geolocation",
+        "android",
+        "gps"
+    ],
+    "platforms": [
+        "android"
+    ],
+    "engines": []
+}

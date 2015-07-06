@@ -14,10 +14,10 @@
                 <% for (var i=0; i < model.get('state') + 1; i++) {%>
                 <div class="raiting"/>
                 <%}%>
-                <% if( model.get('approved')) {%>
+                <% if(model.get('approved')) {%>
                 <!-- <img width="16" height="16" src="/resources/img/likegreen.svg" style="float: right"> -->
                 <div id="likegreen"></div>
-                <% } else {%>
+                <% } else if (model.get('approved') !== null) {%>
                 <!-- <img width="16" height="16" src="/resources/img/likered.svg" style="float: right"> -->
                 <span id="likered"></span>
                 <% }%>

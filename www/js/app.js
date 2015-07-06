@@ -54,10 +54,14 @@ require(["jquery", "backbone", "routers/mobileRouter", "jquerymobile", 'jqueryva
         // Disabling this will prevent jQuery Mobile from handling hash changes
         $.mobile.hashListeningEnabled = false;
         $.mobile.phonegapNavigationEnabled = true;
-        $.mobile.defaultPageTransition = "fade";
-        $.mobile.defaultDialogTransition = "fade";
+        //$.mobile.defaultPageTransition = "fade";
+        //$.mobile.defaultDialogTransition = "fade";
         $.mobile.phonegapNavigationEnabled = true;
         $.mobile.touchOverflowEnabled = true;
+
+        $.mobile.defaultPageTransition   = 'none';
+        $.mobile.defaultDialogTransition = 'none';
+        $.mobile.buttonMarkup.hoverDelay = 0;
 
         $.event.special.tap.tapholdThreshold = 10;
         $.event.special.swipe.horizontalDistanceThreshold = 3;

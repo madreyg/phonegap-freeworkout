@@ -26,10 +26,15 @@ define([
             $("#menu-senders").bind("vclick", "p", function () {
                 $('#navpanel').panel("close");
             });
-            $("#menu-exit").bind("vclick", 'p', function (event) {
-                navigator.app.exitApp();
-                return false
-            });
+            //$("#menu-exit").bind("vclick", 'p', function (e) {
+            //    e.preventDefault();
+            //    if (navigator.app) {
+            //        navigator.app.exitApp();
+            //    }
+            //    else if (navigator.device) {
+            //        navigator.device.exitApp();
+            //    }
+            //});
             $("#btn-reload").bind("vclick", '[id="btn-reload]', function () {
                 var newFragment = Backbone.history.location.hash;
                 $(this).attr('href', newFragment);
@@ -41,13 +46,23 @@ define([
             window.localStorage.setItem('filterCheckPlace', 'on');
             if (window.hasOwnProperty('GPSLocation')) {
                 GPSLocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                    timeout: 10000, enableHighAccuracy: true
+                    timeout: 5000, enableHighAccuracy: true
                 });
             }else {
                 navigator.geolocation.getCurrentPosition(this.onSuccessGeolocation, this.onErrorGeolocation, {
-                    timeout: 10000, enableHighAccuracy: true
+                    timeout: 5000, enableHighAccuracy: true
                 });
             }
+
+            document.addEventListener("backbutton", function(e){
+                if($('.sportgroundlist')){
+                    e.preventDefault();
+                    navigator.app.exitApp();
+                }
+                else {
+                    navigator.app.backHistory()
+                }
+            }, false);
         },
 
         checkConnection: function () {
@@ -72,7 +87,7 @@ define([
         },
 
         onErrorGeolocation: function (error) {
-            alert('Не удалось получить данные геолокации.');
+            alert('Не удалось получить данные геолокации. Включите GPS и перезапустите приложение.');
             window.localStorage.setItem('filterCheckPlace', 'on');
         },
 

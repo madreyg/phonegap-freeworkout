@@ -1,3 +1,6 @@
+#header, #filter-btn-header {
+    z-index: 99999;
+}
 .ui-panel-inner {
     padding: 0 !important; /*make the buttons flush edge to edge*/
 }
@@ -60,3 +63,7 @@
 .error {
     color: red;
 }
+#filterpanel {
+    z-index: 10001;
+}
+a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
